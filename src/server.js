@@ -1,35 +1,22 @@
-'use strict'
-
 require('dotenv').config()
-var mongoose = require('mongoose')
-var app = require('./app')
-const env = require('./config/constants')
+const mongoose = require('mongoose')
+const app = require('./app')
+
+// @todo: ENV config for using MongoDB or local fake JSON Mock Data
 
 async function main() {
   try {
     mongoose.Promise = global.Promise
     mongoose.set('useNewUrlParser', true)
     mongoose.set('useUnifiedTopology', true)
-    // uri + md + db,
-    // process.env.MONGO_LOCAL_CONN_URL + process.env.MONGO_DB_NAME,
-    await mongoose.connect(
-      env.development.uri + env.development.md + env.development.db,
+    await mongoose.connect(process.env.MONGO_LOCAL_CONN_URL + process.env.MONGO_DB_NAME, () => {
+      console.log('La BD funciona ' + process.env.MONGO_LOCAL_CONN_URL + process.env.MONGO_DB_NAME)
 
-      () => {
-        console.log(
-          'La BD funciona ' +
-            env.development.uri +
-            env.development.md +
-            env.development.db
-        )
-        //+ uri + md + db
-        // process.env.MONGO_LOCAL_CONN_URL +
-        // process.env.MONGO_DB_NAME
-        app.listen(process.env.PORT, () => {
-          console.log(`REST API server port: ${process.env.PORT}`)
-        })
-      }
-    )
+      // env.port
+      app.listen(process.env.PORT, () => {
+        console.log(`REST API server port: ${process.env.PORT}`)
+      })
+    })
   } catch (error) {
     console.log(error)
   }

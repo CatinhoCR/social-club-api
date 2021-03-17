@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "f0133fb5-74e0-4d09-b209-a1eaa59a88bf",
+		"name": "Social Clubs App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users Endpoints",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Cato506",
+									"type": "text"
+								},
+								{
+									"key": "fullname",
+									"value": "Andrés Castillo Quesada",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cato@microgardenmusic.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "puravida123",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "isActive",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}register",
+							"host": [
+								"{{url}}register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/5f6ed4a068520aa603c975d2",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"5f6ed4a068520aa603c975d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "cato@microgardenmusic.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "puravida123",
+									"type": "text"
+								},
+								{
+									"key": "getHash",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}login",
+							"host": [
+								"{{url}}login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "cato@aol.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "hola",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3977/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3977",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "239"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ef-fx1UGm6kiyDUn5oQXjRA3oRngM0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Jul 2019 07:43:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"_id\": \"5d24451b06e847320a4a1c55\",\n        \"name\": \"Andres Castillo\",\n        \"surname\": \"Catowl\",\n        \"email\": \"cato@castilloquesada.com\",\n        \"role\": \"ADMIN_ROLE\",\n        \"image\": \"null\",\n        \"password\": \"$2a$10$PShMfc4ZAb.3ZtgXCmmhOOpXqMknIlFyTE.L/qGTmC.Dijd/OQfJq\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Cato",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "fullname",
+									"value": "EsCato",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345611",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "cato@microgardenmusic.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "isActive",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}update-user/5f6ed4a068520aa603c975d2",
+							"host": [
+								"{{url}}update-user"
+							],
+							"path": [
+								"5f6ed4a068520aa603c975d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload User Image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"contentType": "",
+									"type": "file",
+									"src": "/Users/cato/Documents/esCato/selected/IMG_9725.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}upload-image-user/5d9c6682582f68475b7b9e63",
+							"host": [
+								"{{url}}upload-image-user"
+							],
+							"path": [
+								"5d9c6682582f68475b7b9e63"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}get-image-user/Dk4ZryiRR4i3h6gPLZPAEFT1.jpg",
+							"host": [
+								"{{url}}get-image-user"
+							],
+							"path": [
+								"Dk4ZryiRR4i3h6gPLZPAEFT1.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "filterBy",
+									"value": "role",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}users",
+							"host": [
+								"{{url}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}delete-user/5f782a152a84035e1ec329d9",
+							"host": [
+								"{{url}}delete-user"
+							],
+							"path": [
+								"5f782a152a84035e1ec329d9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ping Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDUxYzMxZWU0OTc0ZTlhYjEzYWM4MjkiLCJ1c2VybmFtZSI6IkNhdG81MDYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MTU5NzEwMzAsImV4cCI6MTYxNTk3NDYzMH0.iCCtE7KEhVjyBP1ydUjXQ9ptfie0ufcO4F0QolRjHAw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api/"
+		},
+		{
+			"key": "auth",
+			"value": "JWT Bearer Token"
+		}
+	]
+}

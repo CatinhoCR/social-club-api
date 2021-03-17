@@ -1,18 +1,24 @@
-'use strict'
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
-// const cookieParser = require('cookie-parser')
+// @todo: const cookieParser = require('cookie-parser')
 const environment = process.env.NODE_ENV; // development
-// const stage = require('./config/constants')[environment];
+// @todo: const stage = require('./config/constants')[environment];
 const logger = require('morgan')
+
+
+
+// cargar rutas
+var user_routes = require('./routes/user')
 
 const app = express()
 
-app.use(bodyParser.json())
+// configs
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+// @todo: Implement Refresh Tokens on Cookies - app.use(cookieParser())
 
-// Configurar cabeceras http
+// config http headers
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header(
@@ -36,5 +42,6 @@ app.get('/', function (req, res) {
 app.get('/api', function (req, res) {
   res.status(200).send({ message: 'Bienvenido al API v 0.1 ' })
 })
+app.use('/api', user_routes)
 
 module.exports = app
